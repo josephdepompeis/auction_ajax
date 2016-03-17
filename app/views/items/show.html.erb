@@ -21,20 +21,16 @@
   </p>
 
   <h3>Highest bid</h3>
-  <div class="row collapse">
-    <div class="small-2 columns"><span class="prefix">$</span></div>
-    <div class="small-10 columns"><%= text_field_tag :nothing, @item.highest_bid_amount, disabled: true %></div>
-  </div>
+    <div id= "bid-form">
+      <div class="row collapse">
+        <div class="small-2 columns"><span class="prefix">$</span></div>
+        <div class="small-10 columns"><%= text_field_tag :nothing, @item.highest_bid_amount, disabled: true %></div>
+      </div>
 
-  <%= form_for @bid do |f| %>
-    <h3>Your Bid</h3>
-    <%= f.hidden_field :item_id %>
-    <div class="row collapse">
-      <div class="small-2 columns"><span class="prefix">$</span></div>
-      <div class="small-10 columns"><%= f.text_field :amount %></div>
-    </div>
-    <%= f.submit "Submit Bid!", class: "button success small" %>
-  <% end %>
+      <%= form_for @bid, remote: true do |f| %>
+        <%= render partial: "bid_form", locals: {f: f} %>
+      <% end %>
+  </div>
 </div>
 <div class="small-4 columns">
 </div>
