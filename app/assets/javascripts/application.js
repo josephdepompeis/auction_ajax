@@ -19,7 +19,8 @@
 $(function(){ $(document).foundation(); });
 
 function refresh_bid() {
-  $("#bid-form").load(location.href + " #bid-form");
+  var id = $("#bid_item_id").val();
+  $.getScript("/items/" + id + "/refresh");
 }
 
-setInterval("refresh_bid();",5000);
+setInterval(refresh_bid, 5000);

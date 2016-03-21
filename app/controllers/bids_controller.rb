@@ -2,11 +2,11 @@ class BidsController < ApplicationController
 
   def create
     @bid = Bid.new(bid_params)
+    @item = @bid.item
 
-     if @bid.save
+    if @bid.save
 
     else
-      @item = @bid.item
       render "items/show"
     end
   end

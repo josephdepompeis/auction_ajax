@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :items
+  resources :items do
+    member do
+      get :refresh
+    end
+  end
   resources :bids
 
   # The priority is based upon order of creation: first created -> highest priority.

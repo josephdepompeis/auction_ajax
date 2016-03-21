@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :refresh]
+
+  def refresh
+    render "/bids/create"
+  end
 
   # GET /items
   def index
