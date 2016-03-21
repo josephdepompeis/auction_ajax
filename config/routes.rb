@@ -3,8 +3,14 @@ Rails.application.routes.draw do
     member do
       get :refresh
     end
+    collection do
+      get :top_ten
+    end
   end
+  #get 'items/:id/refresh' => 'items#refresh'
+
   resources :bids
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
